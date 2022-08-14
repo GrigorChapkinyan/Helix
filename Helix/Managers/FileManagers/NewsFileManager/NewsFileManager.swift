@@ -72,7 +72,7 @@ struct NewsFileManager {
         if var pathURL = URL(string: path) {
             pathURL.appendPathComponent(pathComponent)
 
-            return pathURL.absoluteString
+            return pathURL.absoluteString.removingPercentEncoding
         }
 
         return nil

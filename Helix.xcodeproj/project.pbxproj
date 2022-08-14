@@ -28,6 +28,7 @@
 		38B6043E28A91282008A015E /* NewsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6043D28A91282008A015E /* NewsCellViewModel.swift */; };
 		38B6044028A92231008A015E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6043F28A92231008A015E /* HomeViewController.swift */; };
 		38B6044228A9223E008A015E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6044128A9223E008A015E /* HomeViewModel.swift */; };
+		38B6044728A96593008A015E /* ShadowPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6044628A96593008A015E /* ShadowPathView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		38B6043D28A91282008A015E /* NewsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellViewModel.swift; sourceTree = "<group>"; };
 		38B6043F28A92231008A015E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		38B6044128A9223E008A015E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		38B6044628A96593008A015E /* ShadowPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPathView.swift; sourceTree = "<group>"; };
 		410AB275C513BD272A4CF156 /* Pods-Helix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Helix.release.xcconfig"; path = "Target Support Files/Pods-Helix/Pods-Helix.release.xcconfig"; sourceTree = "<group>"; };
 		E165AB05927F14F48D723735 /* Pods-Helix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Helix.debug.xcconfig"; path = "Target Support Files/Pods-Helix/Pods-Helix.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,12 +93,12 @@
 		38B603F328A76197008A015E /* Helix */ = {
 			isa = PBXGroup;
 			children = (
+				38B6040928A76236008A015E /* UI */,
+				38B6040E28A768D3008A015E /* Services */,
 				38B6043228A7B2F2008A015E /* Managers */,
 				38B6042828A7AA60008A015E /* NewsParsers */,
 				38B6041428A76A6F008A015E /* Models */,
 				38B6041128A768FB008A015E /* Utils */,
-				38B6040E28A768D3008A015E /* Services */,
-				38B6040928A76236008A015E /* UI */,
 				38B6040828A76204008A015E /* Supporting Files */,
 			);
 			path = Helix;
@@ -117,6 +119,7 @@
 		38B6040928A76236008A015E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				38B6044428A9657F008A015E /* Views */,
 				38B6043628A91253008A015E /* ViewControllers */,
 				38B6043728A9125B008A015E /* Cells */,
 			);
@@ -284,6 +287,22 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		38B6044428A9657F008A015E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				38B6044528A96588008A015E /* ShadowPathView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		38B6044528A96588008A015E /* ShadowPathView */ = {
+			isa = PBXGroup;
+			children = (
+				38B6044628A96593008A015E /* ShadowPathView.swift */,
+			);
+			path = ShadowPathView;
+			sourceTree = "<group>";
+		};
 		393AA25255ACFD401B759CFD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +446,7 @@
 				38B603F528A76197008A015E /* AppDelegate.swift in Sources */,
 				38B6043B28A91275008A015E /* NewsTableViewCell.swift in Sources */,
 				38B6043E28A91282008A015E /* NewsCellViewModel.swift in Sources */,
+				38B6044728A96593008A015E /* ShadowPathView.swift in Sources */,
 				38B6041028A768DE008A015E /* NetworkService.swift in Sources */,
 				38B6044028A92231008A015E /* HomeViewController.swift in Sources */,
 				38B6042B28A7AA7B008A015E /* INewsEncoder.swift in Sources */,
@@ -583,9 +603,11 @@
 				DEVELOPMENT_TEAM = R482ZLJA25;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Helix/Supporting Files/Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -614,9 +636,11 @@
 				DEVELOPMENT_TEAM = R482ZLJA25;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Helix/Supporting Files/Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

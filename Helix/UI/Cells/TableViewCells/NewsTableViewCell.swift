@@ -12,7 +12,7 @@ import SDWebImage
 class NewsTableViewCell: UITableViewCell {
     // MARK: - Outlets
     
-    @IBOutlet private weak var customContainerView: UIView!
+    @IBOutlet private weak var customContainerView: ShadowPathView!
     @IBOutlet private weak var thumbnailImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionTextView: UITextView!
@@ -30,15 +30,10 @@ class NewsTableViewCell: UITableViewCell {
 
     // MARK: - View Life Cycle
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    
-        setupUIInitialConfigurations()
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
-//        setupUIInitialConfigurations()
+        
+        configureTextViewExclusionPath()
     }
     
     // MARK: - Public API
@@ -50,20 +45,15 @@ class NewsTableViewCell: UITableViewCell {
 
     // MARK: - Private API
     
-    private func setupUIInitialConfigurations() {
+    private func configureTextViewExclusionPath() {
         // Giving exclusion path to text view
         let imageFrame = UIBezierPath(rect: thumbnailImageView.frame)
         descriptionTextView.textContainer.exclusionPaths = [imageFrame]
-        
-        customContainerView.layer.shadowColor = UIColor.black.cgColor
-        customContainerView.layer.shadowOpacity = 1
-        customContainerView.layer.shadowOffset = .zero
-        customContainerView.layer.shadowRadius = 10
     }
     
     private func resetViewModelBindings() {
         reusableBag = DisposeBag()
-        
+
         guard let viewModel = viewModel else {
             return
         }
@@ -71,7 +61,7 @@ class NewsTableViewCell: UITableViewCell {
         titleLabel.text = viewModel.title
         descriptionTextView.text = viewModel.description
         dateLabel.text = viewModel.publishDateStr
-        
+
         thumbnailImageView
             .sd_setImage(with: URL(string: viewModel.imageEndpoint))
     }

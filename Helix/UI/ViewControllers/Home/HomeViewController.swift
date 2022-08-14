@@ -51,6 +51,13 @@ class HomeViewController: UIViewController {
         }
         alertController.addAction(xmlAction)
         alertController.addAction(jsonAction)
+        
+        if let presenter = alertController.popoverPresentationController {
+            presenter.sourceView = self.view
+            presenter.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            presenter.permittedArrowDirections = []
+        }
+        
         self.present(alertController, animated: true)
     }
 
@@ -132,5 +139,12 @@ extension HomeViewController: UITableViewDelegate {
         viewModel.cellTapIndex.accept(indexPath.row)
         // Deselecting the row
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            cell.setNeedsLayout()
+            cell.layoutIfNeeded()
+        }
     }
 }
