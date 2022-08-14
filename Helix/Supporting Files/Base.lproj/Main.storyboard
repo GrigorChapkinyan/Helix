@@ -9,17 +9,55 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Helix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Helix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mQ2-nN-uW6">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEm-9H-XBc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.39198479679999998" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Hdj-mO-c3H">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mQ2-nN-uW6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="043-o2-rP1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mQ2-nN-uW6" secondAttribute="trailing" id="3Sz-Fo-QHr"/>
+                            <constraint firstAttribute="trailing" secondItem="ZEm-9H-XBc" secondAttribute="trailing" id="5IF-kF-hfZ"/>
+                            <constraint firstItem="mQ2-nN-uW6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="83w-uU-wzy"/>
+                            <constraint firstItem="ZEm-9H-XBc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jdv-8G-2K6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mQ2-nN-uW6" secondAttribute="bottom" id="VlV-22-Fg8"/>
+                            <constraint firstItem="Hdj-mO-c3H" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Zr6-tQ-883"/>
+                            <constraint firstAttribute="bottom" secondItem="ZEm-9H-XBc" secondAttribute="bottom" id="fjB-9B-jt2"/>
+                            <constraint firstItem="ZEm-9H-XBc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="joz-Us-h5b"/>
+                            <constraint firstItem="Hdj-mO-c3H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lMQ-WE-HKb"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zVD-fl-tnu"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ovQ-Io-UNw">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" style="plain" id="p5a-7P-Ztv">
+                            <connections>
+                                <action selector="shareBarBtnTap:" destination="BYZ-38-t0r" id="rT1-sH-znL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="blackTransparentView" destination="ZEm-9H-XBc" id="bZH-UH-grO"/>
+                        <outlet property="loadingIndicator" destination="Hdj-mO-c3H" id="Bvt-7b-RlW"/>
+                        <outlet property="tableView" destination="mQ2-nN-uW6" id="uOJ-o0-Fnn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,8 +83,9 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

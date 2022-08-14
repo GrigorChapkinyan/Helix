@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1DBB5658D6287CEA83D0EC1A /* Pods_Helix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F960FD012697404900DEC5 /* Pods_Helix.framework */; };
 		38B603F528A76197008A015E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B603F428A76197008A015E /* AppDelegate.swift */; };
-		38B603F928A76197008A015E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B603F828A76197008A015E /* ViewController.swift */; };
 		38B603FC28A76197008A015E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B603FA28A76197008A015E /* Main.storyboard */; };
 		38B603FE28A7619B008A015E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B603FD28A7619B008A015E /* Assets.xcassets */; };
 		38B6040128A7619B008A015E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B603FF28A7619B008A015E /* LaunchScreen.storyboard */; };
@@ -24,13 +23,17 @@
 		38B6042E28A7AAD3008A015E /* XmlNewsEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6042D28A7AAD3008A015E /* XmlNewsEncoder.swift */; };
 		38B6043128A7AE72008A015E /* JsonNewsEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6043028A7AE72008A015E /* JsonNewsEncoder.swift */; };
 		38B6043528A7E33D008A015E /* NewsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6043428A7E33D008A015E /* NewsDataManager.swift */; };
+		38B6043B28A91275008A015E /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6043928A91275008A015E /* NewsTableViewCell.swift */; };
+		38B6043C28A91275008A015E /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B6043A28A91275008A015E /* NewsTableViewCell.xib */; };
+		38B6043E28A91282008A015E /* NewsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6043D28A91282008A015E /* NewsCellViewModel.swift */; };
+		38B6044028A92231008A015E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6043F28A92231008A015E /* HomeViewController.swift */; };
+		38B6044228A9223E008A015E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6044128A9223E008A015E /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		15F960FD012697404900DEC5 /* Pods_Helix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Helix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B603F128A76197008A015E /* Helix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Helix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B603F428A76197008A015E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		38B603F828A76197008A015E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		38B603FB28A76197008A015E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38B603FD28A7619B008A015E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38B6040028A7619B008A015E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,6 +49,11 @@
 		38B6042D28A7AAD3008A015E /* XmlNewsEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmlNewsEncoder.swift; sourceTree = "<group>"; };
 		38B6043028A7AE72008A015E /* JsonNewsEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonNewsEncoder.swift; sourceTree = "<group>"; };
 		38B6043428A7E33D008A015E /* NewsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDataManager.swift; sourceTree = "<group>"; };
+		38B6043928A91275008A015E /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		38B6043A28A91275008A015E /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		38B6043D28A91282008A015E /* NewsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellViewModel.swift; sourceTree = "<group>"; };
+		38B6043F28A92231008A015E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		38B6044128A9223E008A015E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		410AB275C513BD272A4CF156 /* Pods-Helix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Helix.release.xcconfig"; path = "Target Support Files/Pods-Helix/Pods-Helix.release.xcconfig"; sourceTree = "<group>"; };
 		E165AB05927F14F48D723735 /* Pods-Helix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Helix.debug.xcconfig"; path = "Target Support Files/Pods-Helix/Pods-Helix.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,7 +117,8 @@
 		38B6040928A76236008A015E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				38B603F828A76197008A015E /* ViewController.swift */,
+				38B6043628A91253008A015E /* ViewControllers */,
+				38B6043728A9125B008A015E /* Cells */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -240,6 +249,41 @@
 			path = DataManagers;
 			sourceTree = "<group>";
 		};
+		38B6043628A91253008A015E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				38B6044328A929DD008A015E /* Home */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		38B6043728A9125B008A015E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				38B6043828A9125F008A015E /* TableViewCells */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		38B6043828A9125F008A015E /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				38B6043928A91275008A015E /* NewsTableViewCell.swift */,
+				38B6043A28A91275008A015E /* NewsTableViewCell.xib */,
+				38B6043D28A91282008A015E /* NewsCellViewModel.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		38B6044328A929DD008A015E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				38B6043F28A92231008A015E /* HomeViewController.swift */,
+				38B6044128A9223E008A015E /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		393AA25255ACFD401B759CFD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +363,7 @@
 			files = (
 				38B6040128A7619B008A015E /* LaunchScreen.storyboard in Resources */,
 				38B603FE28A7619B008A015E /* Assets.xcassets in Resources */,
+				38B6043C28A91275008A015E /* NewsTableViewCell.xib in Resources */,
 				38B603FC28A76197008A015E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,15 +417,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B6044228A9223E008A015E /* HomeViewModel.swift in Sources */,
 				38B6041628A76A7B008A015E /* News.swift in Sources */,
 				38B6041D28A76B87008A015E /* XmlNewsDecoder.swift in Sources */,
 				38B6042E28A7AAD3008A015E /* XmlNewsEncoder.swift in Sources */,
 				38B6043128A7AE72008A015E /* JsonNewsEncoder.swift in Sources */,
 				38B6041328A76902008A015E /* Constants.swift in Sources */,
-				38B603F928A76197008A015E /* ViewController.swift in Sources */,
 				38B6041928A76A9E008A015E /* INewsDecoder.swift in Sources */,
 				38B603F528A76197008A015E /* AppDelegate.swift in Sources */,
+				38B6043B28A91275008A015E /* NewsTableViewCell.swift in Sources */,
+				38B6043E28A91282008A015E /* NewsCellViewModel.swift in Sources */,
 				38B6041028A768DE008A015E /* NetworkService.swift in Sources */,
+				38B6044028A92231008A015E /* HomeViewController.swift in Sources */,
 				38B6042B28A7AA7B008A015E /* INewsEncoder.swift in Sources */,
 				38B6043528A7E33D008A015E /* NewsDataManager.swift in Sources */,
 				38B6042328A78EFC008A015E /* NewsFileManager.swift in Sources */,

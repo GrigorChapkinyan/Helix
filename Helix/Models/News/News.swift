@@ -29,7 +29,7 @@ struct News: Codable {
     // MARK: - Public Properties
 
     let title: String
-    let thumbnailImageUrlStr: String?
+    let thumbnailImageUrlStr: String
     let infoDescription: String
     let linkUrlStr: String
     let publishDate: Date!

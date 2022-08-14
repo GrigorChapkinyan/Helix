@@ -12,20 +12,19 @@ import RxCocoa
 class NewsDataManager {
     // MARK: - Nested Types
     
-    enum Error: Swift.Error {
-        case parseError
-    }
-
-    // MARK: - Private Nested Types
-    
-    private enum DataFormatType: CaseIterable {
+    enum DataFormatType: CaseIterable {
         case json
         case xml
     }
     
+    enum Error: Swift.Error {
+        case parseError
+    }
+
     // MARK: - Output
     
     let allItemsObservable = BehaviorRelay<[News]?>(value: nil)
+    let isLaoding = BehaviorRelay<Bool>(value: false)
 
     // MARK: - Private Properties
     
@@ -39,16 +38,22 @@ class NewsDataManager {
     // MARK: - Public API
     
     func updateItems() {
+        isLaoding.accept(true)
+        
         fetchAllItems()
             .subscribe(
                 onNext: { [weak self] (items) in
                     // Emmiting to observable
                     self?.allItemsObservable.accept(items)
+                    // Correcting loading value
+                    self?.isLaoding.accept(false)
                     // Saving locally
                     self?.storeItems(items: items)
                 },
-                onError: { (error) in
+                onError: { [weak self] (error) in
                     print("Error while updating data for \"News\": \(error)")
+                    // Correcting loading value
+                    self?.isLaoding.accept(false)
                 }
             )
             .disposed(by: bag)

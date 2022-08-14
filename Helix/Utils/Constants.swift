@@ -26,6 +26,7 @@ struct Constants {
     
     enum ResourcesNames: String {
         case newsFile = "News.json"
+        case helixNewsList = "Helix news list"
     }
 }
 

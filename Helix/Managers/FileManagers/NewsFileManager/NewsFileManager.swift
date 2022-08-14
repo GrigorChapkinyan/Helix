@@ -15,6 +15,7 @@ struct NewsFileManager {
     enum Error: Swift.Error {
         case readingError(error: Swift.Error?)
         case savingError(error: Swift.Error?)
+        case exportingError(error: Swift.Error?)
     }
     
     // MARK: - Private Properties
@@ -37,6 +38,12 @@ struct NewsFileManager {
         return (items, error)
     }
     
+    @discardableResult mutating func exportItems(_ items: [News]) -> Result {
+        error = nil
+        save(news: items, isExport: true, withFileName: Constants.ResourcesNames.helixNewsList.rawValue)
+        return (nil, error)
+    }
+    
     // MARK: - Initializers
     
     init(decoderType: INewsDecoder.Type, encoderType: INewsEncoder.Type) {
@@ -48,6 +55,13 @@ struct NewsFileManager {
     
     private func libraryDirectory() -> String? {
         let libraryDirectory = NSSearchPathForDirectoriesInDomains(.libraryDirectory,
+                                                                    .userDomainMask,
+                                                                    true)
+        return libraryDirectory.last
+    }
+    
+    private func documentsDirectory() -> String? {
+        let libraryDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory,
                                                                     .userDomainMask,
                                                                     true)
         return libraryDirectory.last
@@ -77,25 +91,39 @@ struct NewsFileManager {
         return decodedData
     }
 
-    @discardableResult mutating private func save(news: [News],
-                      withFileName fileName: String) -> Bool {
-        guard   let libraryDirectory = libraryDirectory(),
-                let filePath = append(toPath: libraryDirectory,
+    @discardableResult mutating private func save(
+        news: [News],
+        isExport: Bool = false,
+        withFileName fileName: String
+    ) -> Bool {
+        // If this is exporting case,
+        // we must append correct file extension to its name
+        let fileName = isExport ? getCorrectedFileNameForExporting(initialName: fileName) : fileName
+        
+        guard   let baseDirectoryPath = isExport ? documentsDirectory() : libraryDirectory(),
+                let filePath = append(toPath: baseDirectoryPath,
                                          withPathComponent: fileName),
-                let jsonData = encoderType.init(news: news).encode()    else {
-            self.error = .savingError(error: nil)
+                let encodedData = encoderType.init(news: news).encode()    else {
+            self.error = isExport ? .exportingError(error: nil) : .savingError(error: nil)
             return false
         }
 
         do {
             let fileUrl = URL(fileURLWithPath: filePath)
-            try jsonData.write(to: fileUrl)
+            try encodedData.write(to: fileUrl)
             return true
         }
         catch {
-            print("Error writing to JSON file: \(error)")
-            self.error = .savingError(error: error)
+            print("Error while writing to file: \(error)")
+            self.error = isExport ? .exportingError(error: error) : .savingError(error: error)
             return false
         }
+    }
+    
+    private func getCorrectedFileNameForExporting(initialName: String) -> String {
+        let fileTypeIsXml = (encoderType == XmlNewsEncoder.self)
+        let fileExt = fileTypeIsXml ? "xml" : "json"
+        let fileName = initialName + "." + fileExt
+        return fileName
     }
 }
