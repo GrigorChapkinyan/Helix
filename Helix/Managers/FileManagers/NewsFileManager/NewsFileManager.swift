@@ -10,6 +10,8 @@ import RxSwift
 struct NewsFileManager {
     // MARK: - Nested Types
 
+    typealias Result = (data: [News]?, error: Error?)
+    
     enum Error: Swift.Error {
         case readingError(error: Swift.Error?)
         case savingError(error: Swift.Error?)
@@ -19,15 +21,20 @@ struct NewsFileManager {
     
     private let decoderType: INewsDecoder.Type
     private let encoderType: INewsEncoder.Type
+    private var error: Error?
     
     // MARK: - Public API
     
-    func storeItems(_ items: [News]) -> Bool {
-        return save(news: items, withFileName: Constants.ResourcesNames.newsFile.rawValue)
+    @discardableResult mutating func storeItems(_ items: [News]) -> Result {
+        error = nil
+        save(news: items, withFileName: Constants.ResourcesNames.newsFile.rawValue)
+        return (nil, error)
     }
     
-    func retrieveItems() -> [News]? {
-        return read(fromDocumentsWithFileName: Constants.ResourcesNames.newsFile.rawValue)
+    @discardableResult mutating func retrieveItems() -> Result {
+        error = nil
+        let items = read(fromDocumentsWithFileName: Constants.ResourcesNames.newsFile.rawValue)
+        return (items, error)
     }
     
     // MARK: - Initializers
@@ -57,24 +64,26 @@ struct NewsFileManager {
         return nil
     }
 
-    private func read(fromDocumentsWithFileName fileName: String) -> [News]? {
+    mutating private func read(fromDocumentsWithFileName fileName: String) -> [News]? {
         guard   let libraryDirectory = libraryDirectory(),
                 let filePath = append(toPath: libraryDirectory,
                                       withPathComponent: fileName),
                 let saveData = try? String(contentsOfFile: filePath).data(using: .utf8)  else {
-                                            return nil
+                    self.error = .readingError(error: nil)
+                    return nil
         }
 
         let decodedData = decoderType.init(data: saveData).decode()
         return decodedData
     }
 
-    private func save(news: [News],
+    @discardableResult mutating private func save(news: [News],
                       withFileName fileName: String) -> Bool {
         guard   let libraryDirectory = libraryDirectory(),
                 let filePath = append(toPath: libraryDirectory,
                                          withPathComponent: fileName),
                 let jsonData = encoderType.init(news: news).encode()    else {
+            self.error = .savingError(error: nil)
             return false
         }
 
@@ -85,6 +94,7 @@ struct NewsFileManager {
         }
         catch {
             print("Error writing to JSON file: \(error)")
+            self.error = .savingError(error: error)
             return false
         }
     }

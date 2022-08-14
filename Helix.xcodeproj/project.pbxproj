@@ -23,6 +23,7 @@
 		38B6042B28A7AA7B008A015E /* INewsEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6042A28A7AA7B008A015E /* INewsEncoder.swift */; };
 		38B6042E28A7AAD3008A015E /* XmlNewsEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6042D28A7AAD3008A015E /* XmlNewsEncoder.swift */; };
 		38B6043128A7AE72008A015E /* JsonNewsEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6043028A7AE72008A015E /* JsonNewsEncoder.swift */; };
+		38B6043528A7E33D008A015E /* NewsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6043428A7E33D008A015E /* NewsDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		38B6042A28A7AA7B008A015E /* INewsEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INewsEncoder.swift; sourceTree = "<group>"; };
 		38B6042D28A7AAD3008A015E /* XmlNewsEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmlNewsEncoder.swift; sourceTree = "<group>"; };
 		38B6043028A7AE72008A015E /* JsonNewsEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonNewsEncoder.swift; sourceTree = "<group>"; };
+		38B6043428A7E33D008A015E /* NewsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDataManager.swift; sourceTree = "<group>"; };
 		410AB275C513BD272A4CF156 /* Pods-Helix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Helix.release.xcconfig"; path = "Target Support Files/Pods-Helix/Pods-Helix.release.xcconfig"; sourceTree = "<group>"; };
 		E165AB05927F14F48D723735 /* Pods-Helix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Helix.debug.xcconfig"; path = "Target Support Files/Pods-Helix/Pods-Helix.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,9 +226,18 @@
 		38B6043228A7B2F2008A015E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				38B6043328A7E330008A015E /* DataManagers */,
 				38B6042728A7A89E008A015E /* FileManagers */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		38B6043328A7E330008A015E /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				38B6043428A7E33D008A015E /* NewsDataManager.swift */,
+			);
+			path = DataManagers;
 			sourceTree = "<group>";
 		};
 		393AA25255ACFD401B759CFD /* Pods */ = {
@@ -371,6 +382,7 @@
 				38B603F528A76197008A015E /* AppDelegate.swift in Sources */,
 				38B6041028A768DE008A015E /* NetworkService.swift in Sources */,
 				38B6042B28A7AA7B008A015E /* INewsEncoder.swift in Sources */,
+				38B6043528A7E33D008A015E /* NewsDataManager.swift in Sources */,
 				38B6042328A78EFC008A015E /* NewsFileManager.swift in Sources */,
 				38B6041F28A76BA4008A015E /* JsonNewsDecoder.swift in Sources */,
 			);

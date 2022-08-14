@@ -27,18 +27,5 @@ struct Constants {
     enum ResourcesNames: String {
         case newsFile = "News.json"
     }
-    
-//    enum HttpBodyKeys: String {
-//    }
-//
-//    enum ImageAssetNames: String {
-//
-//    }
-//
-//    enum ColorNames: String {
-//
-//    }
-    
-    static let requestJsonHeaders = ["Content-Type": "application/json","Accept": "application/json"]
 }
 
